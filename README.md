@@ -38,4 +38,9 @@ Page Load Time has been calculated by using the [Lighthouse Tool](https://develo
 
 ![Screenshot](public\image_speed_test.jpg)
 
-No such optimazations were needed.
+## Accessibility Improvements Needed and Done in
+
+1.Buttons do not have an accessible name
+fixed with passing a span element inside the menu button element before putting he icon.
+2.Background and foreground colors do not have a sufficient contrast ratio.
+fixed with replacing "secondary" colour to "success" ,grey to green

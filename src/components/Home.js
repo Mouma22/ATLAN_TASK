@@ -67,6 +67,7 @@ function Home() {
       {/* // navbar // */}
       <Navbar
         bg="light"
+        variant="light"
         expand="lg"
         className="fixed-top"
         style={{ boxShadow: "3px 5px 3px #9e9e9e" }}
@@ -74,7 +75,9 @@ function Home() {
         <Container>
           <div>
             <Button onClick={handleShow} variant="outline">
-              <FaBars />
+              <span>
+                <FaBars />
+              </span>
             </Button>
             {/* offcanvas starts */}
             <Offcanvas show={show} onHide={handleClose}>
@@ -183,7 +186,7 @@ function Home() {
           <Nav className="me-auto"></Nav>
           <div className="d-flex justify-content-end gap-2">
             <Button
-              variant="outline-secondary"
+              variant="outline-success"
               className="btn ml-auto"
               onClick={() => {
                 onRun();
@@ -193,13 +196,13 @@ function Home() {
             >
               Run Query
             </Button>
-            <Button variant="outline-secondary" className="btn ml-auto">
+            <Button variant="outline-success" className="btn ml-auto">
               {/* button for importing file  */}
               Import File
             </Button>
 
             <Dropdown>
-              <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
+              <Dropdown.Toggle variant="outline-success" id="dropdown-basic">
                 Export File
               </Dropdown.Toggle>
               <Dropdown.Menu>
