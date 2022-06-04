@@ -53,8 +53,8 @@ function Home() {
   const ord = mockData.orders; //only the orders table, stored in an array called ord
   const cus = mockData.customers; //only the customers table, stored in an array called ord
 
-  const ordersData = ord.filter((er) => er.shipCountry == country); // filter funtion used when a country name(in orders table) is selected (menu button-->Find By Coountry dropdown-->country name ie:USA,France,Brazil) to select the rows where shipCountry is similar with the selected values
-  const customerData = cus.filter((er) => er.country == country); // same but using customers table , findind the rows where country value is similar with the selected value
+  const ordersData = ord.filter((er) => er.shipCountry === country); // filter funtion used when a country name(in orders table) is selected (menu button-->Find By Coountry dropdown-->country name ie:USA,France,Brazil) to select the rows where shipCountry is similar with the selected values
+  const customerData = cus.filter((er) => er.country === country); // same but using customers table , findind the rows where country value is similar with the selected value
   // const orders = mockData.orders;
   const [text, setText] = useState("Write Your Query Here...");
   // const changeText =
@@ -65,7 +65,7 @@ function Home() {
   useEffect(() => {
     // console.log(new1);
     ord.splice(0, 0, new1); //splice method is used to add the new row to the first position of the table array to make is easily visible to the user
-  }, [did, new1]);
+  }, [ord, new1]);
 
   return (
     <div>
@@ -91,7 +91,7 @@ function Home() {
                   <NavDropdown.Item
                     onClick={() => {
                       setCountry("USA");
-                      did == "orders" //if the selected table is orders it will show the text inside the state below
+                      did === "orders" //if the selected table is orders it will show the text inside the state below
                         ? setText(
                             //the predefined query for findind rows for a specific data will be shown in the text area.
                             "SELECT orderID, customerID, shipName, shipCountry FROM orders WHERE shipCountry = USA"
@@ -108,7 +108,7 @@ function Home() {
                   <NavDropdown.Item
                     onClick={() => {
                       setCountry("France");
-                      did == "orders"
+                      did === "orders"
                         ? setText(
                             "SELECT orderID, customerID, shipName, shipCountry FROM orders WHERE shipCountry = France"
                           )
@@ -123,7 +123,7 @@ function Home() {
                   <NavDropdown.Item
                     onClick={() => {
                       setCountry("Brazil");
-                      did == "orders"
+                      did === "orders"
                         ? setText(
                             "SELECT orderID, customerID, shipName, shipCountry FROM orders WHERE shipCountry = Brazil"
                           )
@@ -167,13 +167,11 @@ function Home() {
 
                   <button
                     onClick={() => {
-                      {
-                        {
-                          addData(); //addData function is getting called//
-                        }
+                      addData(); //addData function is getting called//
 
-                        setDeftable(false);
-                      }
+                      setDeftable(false);
+
+                      setText("");
                     }}
                   >
                     ADD
@@ -194,7 +192,8 @@ function Home() {
               className="btn ml-auto"
               onClick={() => {
                 onRun();
-                setDid({}); //on clicking runquery the default table will be shown, if a table selected from the home page dropdown ,it will not be shown as did is an empty object
+                setDid({});
+                setText(""); //on clicking runquery the default table will be shown, if a table selected from the home page dropdown ,it will not be shown as did is an empty object
               }}
             >
               Run Query
@@ -243,7 +242,7 @@ function Home() {
         {/* //if deftable is true (means the RUNQUERY button is clicked, the default table will be displayed) */}
         {/* if the selected table is orders then this table will be displayed */}
 
-        {did == "orders" && (
+        {did === "orders" && (
           <Container style={{ boxShadow: "3px 2px 3px 2px #9e9e9e" }}>
             <Table striped bordered hover>
               <thead>
@@ -273,7 +272,7 @@ function Home() {
             </Table>
           </Container>
         )}
-        {did == "customers" && (
+        {did === "customers" && (
           <Container style={{ boxShadow: "3px 2px 3px 2px #9e9e9e" }}>
             <Table striped bordered hover>
               <thead>
