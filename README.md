@@ -37,6 +37,7 @@ You may also see any lint errors in the console.
 Page Load Time has been calculated by using the [Lighthouse Tool](https://developers.google.com/web/tools/lighthouse).
 
 ![Screenshot](public\image_speed_test.jpg)
+![img](https://github.com/Mouma22/ATLAN_TASK/blob/611e19615bd63e77d38164c03054618b69b954ff/public/image_speed_test.jpg)
 
 ## Accessibility Improvements Needed and Done in
 
