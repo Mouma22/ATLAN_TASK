@@ -45,11 +45,6 @@ function Home() {
     // gets called when RUNQUERY BUTTON IS CLICKED
     setDeftable(true);
   };
-
-  // const [text, setText] = () => setText();
-  // const textUSA =
-  //   "SELECT orderID, customerID, shipName, shipCountry FROM orders WHERE shipCountry = USA";
-  // console.log(mockData);
   const ord = mockData.orders; //only the orders table, stored in an array called ord
   const cus = mockData.customers; //only the customers table, stored in an array called ord
 
